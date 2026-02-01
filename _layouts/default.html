@@ -38,10 +38,26 @@
     <footer class="site-footer">
         <p>
             Keep building ⚡️
-            <a href="mailto:{{ site.author.email }}" class="footer-link">Email Me</a>
+            <a href="#" id="contact-btn" class="footer-link">Email Me</a>
         </p>
     </footer>
 
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Get in Touch</h2>
+            <p id="email-text">{{ site.author.email }}</p>
+            <div class="modal-actions">
+                <button id="copy-btn" class="modal-btn">Copy Email</button>
+                <a href="mailto:{{ site.author.email }}" class="modal-btn primary">Open Mail App</a>
+            </div>
+            <p id="copy-success" style="display:none; color: var(--color-text); margin-top: 10px; font-weight: bold;">
+                Copied!</p>
+        </div>
+    </div>
+
+    <script src="{{ site.baseurl }}/assets/js/main.js"></script>
 </body>
 
 </html>

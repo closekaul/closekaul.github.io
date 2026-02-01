@@ -12,13 +12,22 @@ layout: default
     </div>
 </section>
 
-<div id="projects">
-    <h2 class="section-title">Select Projects</h2>
-    <ul class="content-list">
-        {% for project in site.data.projects %}
-        <li class="content-item">
-            <a href="{{ project.link }}" class="item-title">{{ project.title }}</a>
-            <span class="item-meta">{{ project.description }} // {{ project.year }}</span>
+<div id="feed-section">
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="projects">Projects</button>
+        <button class="filter-btn" data-filter="blog">Blog</button>
+        <button class="filter-btn" data-filter="research">Research</button>
+    </div>
+
+    <ul class="content-list" id="feed-list">
+        {% for item in site.data.content %}
+        <li class="content-item" data-category="{{ item.category }}">
+            <a href="{{ item.link }}" class="item-title">{{ item.title }}</a>
+            <span class="item-meta">
+                <span class="category-tag">[{{ item.category | upcase }}]</span> 
+                {{ item.description }} // {{ item.year }}
+            </span>
         </li>
         {% endfor %}
     </ul>

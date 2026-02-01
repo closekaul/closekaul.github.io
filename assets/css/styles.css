@@ -1,8 +1,11 @@
 /* Funky Brutalist Variables */
 :root {
-    --color-bg-start: #FFA500; /* Orange */
-    --color-bg-end: #FFD700;   /* Gold */
-    --color-text: #2519D2;     /* Electric Blue */
+    --color-bg-start: #FFA500;
+    /* Orange */
+    --color-bg-end: #FFD700;
+    /* Gold */
+    --color-text: #2519D2;
+    /* Electric Blue */
     --color-white: #ffffff;
     --color-black: #000000;
     --border-thickness: 3px;
@@ -28,7 +31,12 @@ body {
     padding-bottom: 4rem;
 }
 
-h1, h2, h3, .nav-link {
+h1,
+h2,
+h3,
+.nav-link,
+button,
+.modal-btn {
     font-family: var(--font-heading);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -115,17 +123,35 @@ a:hover {
     margin-bottom: 1rem;
 }
 
-/* Content Sections */
-.section-title {
-    font-size: 2rem;
+/* Feed & Filters */
+.filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--color-white);
+    border: var(--border-thickness) solid var(--color-black);
+    color: var(--color-text);
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 4px 4px 0 var(--color-black);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.filter-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--color-black);
+}
+
+.filter-btn.active {
     background: var(--color-text);
     color: var(--color-white);
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border: var(--border-thickness) solid var(--color-black);
-    box-shadow: 4px 4px 0 var(--color-black);
-    margin-bottom: 1.5rem;
-    margin-top: 2rem;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--color-black);
 }
 
 .content-list {
@@ -141,6 +167,7 @@ a:hover {
     justify-content: space-between;
     align-items: baseline;
     transition: background 0.1s;
+    background: var(--color-white);
 }
 
 .content-item:last-child {
@@ -148,7 +175,7 @@ a:hover {
 }
 
 .content-item:hover {
-    background: #ffeeba; /* Light yellow hover */
+    background: #ffeeba;
 }
 
 .item-title {
@@ -159,6 +186,17 @@ a:hover {
 .item-meta {
     font-family: monospace;
     color: #666;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    text-align: right;
+}
+
+.category-tag {
+    font-weight: bold;
+    color: var(--color-text);
+    font-size: 0.9em;
 }
 
 /* Footer */
@@ -177,6 +215,101 @@ a:hover {
     margin: 0 1rem;
 }
 
+/* Modal Styles */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--color-white);
+    border: var(--border-thickness) solid var(--color-black);
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 10px 10px 0 var(--color-bg-start);
+    text-align: center;
+    animation: slideInDown 0.3s ease-out;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--color-black);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.modal-btn {
+    padding: 0.75rem 1.5rem;
+    border: var(--border-thickness) solid var(--color-black);
+    background: var(--color-white);
+    color: var(--color-text);
+    cursor: pointer;
+    box-shadow: 4px 4px 0 var(--color-black);
+    font-size: 1rem;
+}
+
+.modal-btn.primary {
+    background: var(--color-text);
+    color: var(--color-white);
+}
+
+.modal-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--color-black);
+}
+
+.modal-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--color-black);
+}
+
+/* Animations */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
     .header-content {
@@ -189,7 +322,7 @@ a:hover {
         text-align: center;
         padding: 1.5rem;
     }
-    
+
     .hero-text h1 {
         font-size: 2rem;
     }
@@ -197,5 +330,11 @@ a:hover {
     .content-item {
         flex-direction: column;
         gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .item-meta {
+        align-items: flex-start;
+        text-align: left;
     }
 }
