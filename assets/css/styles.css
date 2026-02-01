@@ -22,7 +22,14 @@
 }
 
 body {
-    background: linear-gradient(135deg, var(--color-bg-start), var(--color-bg-end));
+    /* Animated Swarm Background */
+    background: radial-gradient(at 0% 0%, hsla(10, 100%, 60%, 1) 0, transparent 55%),
+        radial-gradient(at 50% 0%, hsla(60, 100%, 50%, 1) 0, transparent 55%),
+        radial-gradient(at 100% 100%, hsla(330, 100%, 60%, 1) 0, transparent 55%);
+    background-size: 200% 200%;
+    animation: swarmMove 15s ease infinite;
+    background-color: #FFA500;
+    /* Fallback */
     color: var(--color-text);
     font-family: var(--font-body);
     font-size: 18px;
@@ -432,5 +439,19 @@ a:hover {
     .item-meta {
         align-items: flex-start;
         text-align: left;
+    }
+}
+
+@keyframes swarmMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
     }
 }
