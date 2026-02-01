@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // --- Feed Filtering Logic ---
     const filterBtns = document.querySelectorAll('.filter-btn');
     const contentItems = document.querySelectorAll('.content-item');
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             contentItems.forEach(item => {
                 const category = item.getAttribute('data-category');
-                
+
                 // Reset animation
                 item.style.animation = 'none';
                 item.offsetHeight; /* trigger reflow */
@@ -39,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailText = document.getElementById('email-text');
     const copySuccess = document.getElementById('copy-success');
 
-    // Add event listener to nav "Contact" link as well if it exists
-    const navContact = document.querySelector('a[href^="mailto"]');
+    // Add event listener to nav "Contact" link (specifically the one in the header)
+    const navContact = document.querySelector('.site-nav a[href^="mailto"]');
     if (navContact) {
         navContact.addEventListener('click', (e) => {
             e.preventDefault();
