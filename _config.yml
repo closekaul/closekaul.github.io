@@ -15,7 +15,7 @@ author:
   name: "Yash Kaul"
   email: "yashwardhankaul@gmail.com"
   bio: "I build things. Keep it simple, keep it funky."
-  avatar: "https://github.com/identicons/yash.png" # Placeholder
+  avatar: "/assets/images/me.jpg" # Placeholder
 
 # Navigation Links
 nav_links:
