@@ -2,7 +2,7 @@
   category: "projects"
   description: "This very website! Built with Jekyll and funky colors."
   year: "2024"
-  link: "#"
+  link: "/projects/personal-website.html"
 
 - title: "Climate Action Platform"
   category: "projects"
