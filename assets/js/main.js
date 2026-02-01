@@ -31,6 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Make the entire content item clickable
+    contentItems.forEach(item => {
+        item.style.cursor = 'pointer';
+        item.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') return;
+            const link = item.querySelector('a.item-title');
+            if (link && link.getAttribute('href') !== '#') {
+                window.location.href = link.href;
+            }
+        });
+    });
+
     // --- Contact Modal Logic ---
     const modal = document.getElementById('contact-modal');
     const contactBtn = document.getElementById('contact-btn');
