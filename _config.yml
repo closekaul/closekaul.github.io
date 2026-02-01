@@ -12,7 +12,7 @@ plugins:
 
 # User Info (You can change this freely)
 author:
-  name: "Yash"
+  name: "Yash Kaul"
   email: "yashwardhankaul@gmail.com"
   bio: "I build things. Keep it simple, keep it funky."
   avatar: "https://github.com/identicons/yash.png" # Placeholder
@@ -24,4 +24,4 @@ nav_links:
   - title: About
     url: "#about"
   - title: Contact
-    url: "mailto:yash@example.com"
+    url: "mailto:yashwardhankaul@gmail.com"

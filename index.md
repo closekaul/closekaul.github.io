@@ -22,16 +22,12 @@ layout: default
     </ul>
 </div>
 
-<div id="about" style="margin-top: 4rem;">
-    <h2 class="section-title">About Me</h2>
+<div id="contact" style="margin-top: 4rem;">
+    <h2 class="section-title">Contact Me</h2>
     <div class="content-list" style="padding: 2rem;">
         <p>
-            I'm a developer based in... well, wherever the wifi is good. I like simplicity in code and chaos in design.
-            This site is a reflection of that. 
+            I'm based in... well, wherever the wifi is good. I like simplicity in code and design.
         </p>
         <br>
-        <p>
-            <strong>Stack:</strong> Jekyll, HTML5, CSS3, GitHub Pages.
-        </p>
     </div>
 </div>
