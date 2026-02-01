@@ -29,7 +29,102 @@ body {
     line-height: 1.6;
     min-height: 100vh;
     padding-bottom: 4rem;
-    cursor: url('/assets/images/tea-cursor.svg') 16 16, auto;
+    cursor: none;
+
+    /* Hide default cursor */
+    /* Mobile: Show default cursor since touch doesn't have hover */
+    @media (pointer: coarse) {
+        cursor: auto;
+    }
+}
+
+a,
+button,
+.filter-btn,
+.modal-btn,
+.close-modal {
+    cursor: none;
+    /* Ensure key interactive elements also hide cursor */
+}
+
+/* Custom Cursor Styles */
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    display: none;
+    /* Hidden by default, shown by JS */
+}
+
+/* Show only on non-touch devices */
+@media (pointer: fine) {
+    #custom-cursor {
+        display: block;
+    }
+}
+
+.steam-container {
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    width: 20px;
+    height: 30px;
+}
+
+.steam {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0;
+}
+
+.steam-1 {
+    width: 6px;
+    height: 15px;
+    left: 2px;
+    animation: steamRise 2s infinite ease-out;
+}
+
+.steam-2 {
+    width: 8px;
+    height: 20px;
+    left: 8px;
+    animation: steamRise 2s infinite ease-out 0.5s;
+}
+
+.steam-3 {
+    width: 5px;
+    height: 12px;
+    left: 14px;
+    animation: steamRise 2s infinite ease-out 1s;
+}
+
+@keyframes steamRise {
+    0% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-20px) scaleX(1.5);
+        opacity: 0;
+    }
+}
+
+/* Hover effect */
+#custom-cursor.hovering .chai-glass {
+    transform: scale(1.2) rotate(-5deg);
+    transition: transform 0.2s;
 }
 
 h1,

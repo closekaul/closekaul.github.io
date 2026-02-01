@@ -92,4 +92,31 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Custom Cursor Logic ---
+    const customCursor = document.getElementById('custom-cursor');
+
+    if (customCursor) {
+        document.addEventListener('mousemove', (e) => {
+            customCursor.style.left = e.clientX + 'px';
+            customCursor.style.top = e.clientY + 'px';
+        });
+
+        // Add hover effect
+        const hoverTargets = document.querySelectorAll('a, button, .content-item');
+
+        hoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => customCursor.classList.add('hovering'));
+            target.addEventListener('mouseleave', () => customCursor.classList.remove('hovering'));
+        });
+
+        // Dynamic check for new elements (like modal content)
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.matches('a, button, input, textarea, .filter-btn, .close-modal')) {
+                customCursor.classList.add('hovering');
+            } else {
+                customCursor.classList.remove('hovering');
+            }
+        });
+    }
 });
