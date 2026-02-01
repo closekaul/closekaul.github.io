@@ -6,7 +6,9 @@ layout: default
     <img src="https://github.com/identicons/yash.png" alt="Yash's Avatar" class="avatar">
     <div class="hero-text">
         <h1>Hi, I'm Yash.</h1>
-        <p>I’m a data, Analytics and AI leader in the life-insurance space, building enterprise-grade data and AI platforms across Snowflake, AWS, DBT, and modern ML systems. I lead enterprise analytics and applied AI projects that power underwriting, operations, and customer experience, with a focus on turning generative AI into real business leverage through automation, governance-first design, and product-driven thinking. Outside of work, I’m always travelling, cooking delicious food, spend time with family and friends</p>
+        <p>I’m a data, Analytics and AI leader in the life-insurance space, building enterprise-grade data and AI platforms across Snowflake, AWS, DBT, and modern ML systems. I lead enterprise analytics and applied AI projects that power underwriting, operations, and customer experience, with a focus on turning generative AI into real business leverage through automation, governance-first design, and product-driven thinking. Outside of work, I’m always travelling, cooking delicious food, spend time with family and friends.
+         I'm based in... well, wherever the wifi is good. I like simplicity in code and design.
+        </p>
     </div>
 </section>
 
@@ -20,14 +22,4 @@ layout: default
         </li>
         {% endfor %}
     </ul>
-</div>
-
-<div id="contact" style="margin-top: 4rem;">
-    <h2 class="section-title">Contact Me</h2>
-    <div class="content-list" style="padding: 2rem;">
-        <p>
-            I'm based in... well, wherever the wifi is good. I like simplicity in code and design.
-        </p>
-        <br>
-    </div>
 </div>
