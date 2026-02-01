@@ -29,8 +29,7 @@ body {
     line-height: 1.6;
     min-height: 100vh;
     padding-bottom: 4rem;
-    cursor: url('../images/tea-cursor.svg') 16 24, auto;
-    /* 16 24 to center bottom-ish on the emoji */
+    cursor: url('/assets/images/tea-cursor.svg') 16 16, auto;
 }
 
 h1,
