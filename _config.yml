@@ -1,0 +1,27 @@
+title: "Meet Yash Kaul"
+description: "An introduction to Yash Kaul."
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# User Info (You can change this freely)
+author:
+  name: "Yash"
+  email: "yashwardhankaul@gmail.com"
+  bio: "I build things. Keep it simple, keep it funky."
+  avatar: "https://github.com/identicons/yash.png" # Placeholder
+
+# Navigation Links
+nav_links:
+  - title: Projects
+    url: "#projects"
+  - title: About
+    url: "#about"
+  - title: Contact
+    url: "mailto:yash@example.com"
