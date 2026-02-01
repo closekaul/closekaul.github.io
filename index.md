@@ -6,7 +6,7 @@ layout: default
     <img src="https://github.com/identicons/yash.png" alt="Yash's Avatar" class="avatar">
     <div class="hero-text">
         <h1>Hi, I'm Yash.</h1>
-        <p>I build web projects with bold designs and clean code. Welcome to my digital garden.</p>
+        <p>I’m a data, Analytics and AI leader in the life-insurance space, building enterprise-grade data and AI platforms across Snowflake, AWS, DBT, and modern ML systems. I lead enterprise analytics and applied AI projects that power underwriting, operations, and customer experience, with a focus on turning generative AI into real business leverage through automation, governance-first design, and product-driven thinking. Outside of work, I’m always travelling, cooking delicious food, spend time with family and friends</p>
     </div>
 </section>
 
