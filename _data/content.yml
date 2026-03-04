@@ -1,3 +1,9 @@
+- title: "ASCII Art Camera"
+  category: "projects"
+  description: "Real-time webcam to ASCII art converter with cyberpunk neon aesthetics."
+  year: "2025"
+  link: "/projects/ascii-camera.html"
+
 - title: "Personal Website"
   category: "projects"
   description: "This very website! Built with Jekyll and funky colors."

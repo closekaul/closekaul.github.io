@@ -1,0 +1,326 @@
+/* ASCII Art Camera — Cyberpunk/Neon styles scoped to .ascii-camera */
+
+.ascii-camera {
+    --ac-bg: #0a0a0f;
+    --ac-cyan: #0ff;
+    --ac-magenta: #f0f;
+    --ac-yellow: #ff0;
+    --ac-green: #0f0;
+    --ac-panel: rgba(10, 10, 20, 0.85);
+    --ac-border: 1px solid rgba(0, 255, 255, 0.3);
+    --ac-font: 'Fira Code', monospace;
+    --ac-glow-cyan: 0 0 10px rgba(0, 255, 255, 0.5);
+    --ac-glow-magenta: 0 0 10px rgba(255, 0, 255, 0.5);
+
+    font-family: var(--ac-font);
+    background: var(--ac-bg);
+    color: var(--ac-cyan);
+    min-height: 100vh;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Grid background */
+.ascii-camera::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ascii-camera > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+.ascii-camera__back {
+    font-family: var(--ac-font);
+    color: var(--ac-magenta);
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-shadow: var(--ac-glow-magenta);
+    cursor: pointer;
+}
+
+.ascii-camera__back:hover {
+    color: var(--ac-cyan);
+    text-shadow: var(--ac-glow-cyan);
+}
+
+.ascii-camera__header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.ascii-camera__title {
+    font-family: var(--ac-font);
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--ac-cyan);
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.3);
+    letter-spacing: 0.15em;
+    margin: 0.5rem 0 0.25rem;
+}
+
+.ascii-camera__subtitle {
+    font-size: 0.75rem;
+    color: var(--ac-magenta);
+    text-shadow: var(--ac-glow-magenta);
+    letter-spacing: 0.3em;
+}
+
+/* Viewport */
+.ascii-camera__viewport {
+    position: relative;
+    background: #050508;
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.15), inset 0 0 30px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* CRT scanline overlay */
+.ascii-camera__scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.08) 2px,
+        rgba(0, 0, 0, 0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 10;
+}
+
+.ascii-camera__output-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+}
+
+.ascii-camera__output {
+    font-family: var(--ac-font);
+    font-size: clamp(4px, 0.9vw, 8px);
+    line-height: 1.1;
+    color: var(--ac-green);
+    text-shadow: 0 0 4px rgba(0, 255, 0, 0.4);
+    white-space: pre;
+    margin: 0;
+    text-align: center;
+    user-select: text;
+}
+
+.ascii-camera__canvas {
+    max-width: 100%;
+    image-rendering: pixelated;
+}
+
+/* Controls HUD */
+.ascii-camera__controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    background: var(--ac-panel);
+    border: var(--ac-border);
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    box-shadow: var(--ac-glow-cyan);
+}
+
+.ascii-camera__control-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ascii-camera__label {
+    font-size: 0.7rem;
+    color: var(--ac-magenta);
+    letter-spacing: 0.1em;
+    text-shadow: var(--ac-glow-magenta);
+}
+
+.ascii-camera__value {
+    font-size: 0.75rem;
+    color: var(--ac-yellow);
+    min-width: 2ch;
+    text-align: center;
+}
+
+/* Slider */
+.ascii-camera__slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 120px;
+    height: 4px;
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.ascii-camera__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    background: var(--ac-cyan);
+    border-radius: 50%;
+    box-shadow: var(--ac-glow-cyan);
+    cursor: pointer;
+}
+
+.ascii-camera__slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: var(--ac-cyan);
+    border: none;
+    border-radius: 50%;
+    box-shadow: var(--ac-glow-cyan);
+    cursor: pointer;
+}
+
+/* Toggle */
+.ascii-camera__toggle {
+    font-family: var(--ac-font);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
+    background: transparent;
+    color: var(--ac-cyan);
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    border-radius: 3px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+}
+
+.ascii-camera__toggle[data-active="true"] {
+    background: rgba(0, 255, 255, 0.15);
+    color: var(--ac-cyan);
+    box-shadow: var(--ac-glow-cyan);
+    border-color: var(--ac-cyan);
+}
+
+/* Select */
+.ascii-camera__select {
+    font-family: var(--ac-font);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    background: var(--ac-bg);
+    color: var(--ac-cyan);
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+}
+
+.ascii-camera__select option {
+    background: var(--ac-bg);
+    color: var(--ac-cyan);
+}
+
+/* Buttons */
+.ascii-camera__btn {
+    font-family: var(--ac-font);
+    font-size: 0.7rem;
+    padding: 0.4rem 1rem;
+    background: transparent;
+    color: var(--ac-yellow);
+    border: 1px solid rgba(255, 255, 0, 0.4);
+    border-radius: 3px;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+}
+
+.ascii-camera__btn:hover {
+    background: rgba(255, 255, 0, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+    border-color: var(--ac-yellow);
+}
+
+.ascii-camera__btn:active {
+    transform: scale(0.97);
+}
+
+.ascii-camera__actions {
+    gap: 0.5rem;
+}
+
+/* Start button */
+.ascii-camera__start-btn {
+    display: block;
+    margin: 1.5rem auto 0;
+    font-family: var(--ac-font);
+    font-size: 1rem;
+    padding: 0.8rem 2.5rem;
+    background: transparent;
+    color: var(--ac-cyan);
+    border: 2px solid var(--ac-cyan);
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.15em;
+    text-shadow: var(--ac-glow-cyan);
+    box-shadow: var(--ac-glow-cyan);
+    transition: all 0.3s;
+    animation: neonPulse 2s ease-in-out infinite;
+}
+
+.ascii-camera__start-btn:hover {
+    background: rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+.ascii-camera__start-btn.active {
+    color: var(--ac-magenta);
+    border-color: var(--ac-magenta);
+    box-shadow: var(--ac-glow-magenta);
+    text-shadow: var(--ac-glow-magenta);
+    animation: none;
+}
+
+@keyframes neonPulse {
+    0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.2); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .ascii-camera {
+        padding: 1rem;
+    }
+
+    .ascii-camera__controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ascii-camera__control-group {
+        justify-content: space-between;
+    }
+
+    .ascii-camera__slider {
+        flex: 1;
+    }
+
+    .ascii-camera__actions {
+        justify-content: center;
+    }
+}
