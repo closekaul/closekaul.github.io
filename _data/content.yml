@@ -1,3 +1,9 @@
+- title: "Governance-as-Code: The Quiet Shift Reshaping Compliance in 2026"
+  category: "blog"
+  description: "How moving all governance into a single versioned code repository turned 15-hour audit scrambles into minutes — and what to watch next."
+  year: "2026"
+  link: "/projects/governance-as-code.html"
+
 - title: "ASCII Art Camera"
   category: "projects"
   description: "Real-time webcam to ASCII art converter with cyberpunk neon aesthetics."
